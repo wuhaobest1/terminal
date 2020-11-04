@@ -1,16 +1,24 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal</title>
-    
+  <link rel="stylesheet" href="https://www.blib.cn/cdn/xterm.css" />
+  <script src="https://www.blib.cn/cdn/xterm.js"></script>
+    <script src="https://www.blib.cn/cdn/jquery.js"></script>
 </head>
-
 <body>
-
+  <div id="terminal"></div>
+  <script type="text/javascript">
+      var window_width = $(window).width();
+      var window_height = $(window).height();
+      var term = new Terminal(
+            {
+                cols: Math.floor(window_width/9),
+                rows: Math.floor(window_height/20),
+                useStyle:true,
+                cursorBlink:true
+            }
+    );
+    term.open(document.getElementById('terminal'));
+    term.write('Hello lyshark \x1B[1;3;31mxterm.js\x1B[0m $ ')
+  </script>
 </body>
-
 </html>
